@@ -14,8 +14,8 @@ class SentimentAnalysisService:
         modelFilename = "affectus-analysis.sav"
         
         vectorizer = pickle.load(open(path+"/"+vectorizerFilename ,"rb"))
-        texts = list(map(lambda text: remove_stopwords_then_stem(text), texts))
-        transformedTexts = vectorizer.transform(texts)
+        stemmedTexts = map(lambda text: remove_stopwords_then_stem(text), texts)
+        transformedTexts = vectorizer.transform(stemmedTexts)
 
         model = pickle.load(open(path+"/"+modelFilename, "rb"))
         predictions = model.predict(transformedTexts)
