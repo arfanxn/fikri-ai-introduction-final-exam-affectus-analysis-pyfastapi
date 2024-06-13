@@ -1,0 +1,62 @@
+{
+	"info": {
+		"_postman_id": "bee64e9d-7895-4f45-ae50-5fde04ddfd51",
+		"name": "API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17284024",
+		"_collection_link": "https://arfan-team.postman.co/workspace/Affectus-Analysis~4bfb1a37-6c94-41d0-b6c3-3f1308c94903/collection/17284024-bee64e9d-7895-4f45-ae50-5fde04ddfd51?action=share&source=collection_link&creator=17284024"
+	},
+	"item": [
+		{
+			"name": "Sentiment Analyses",
+			"item": [
+				{
+					"name": "Show",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/api/sentiment-analyses",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"sentiment-analyses"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "text",
+									"value": "Hello, I'm sad",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/sentiment-analyses",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"sentiment-analyses"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
