@@ -1,6 +1,6 @@
 # Affectus Analysis (Backend)
 
-Affectus Analysis (Backend) is a sentiment analysis app built with python and fastapi
+Affectus Analysis (Backend) is a sentiment analysis app built with Python programming language and FastAPI library
 
 ## Features
 
@@ -8,9 +8,16 @@ Affectus Analysis (Backend) is a sentiment analysis app built with python and fa
 -
 -
 
+## Notes
+
+-   the *postman_collection.json* at the root directory holds the app routes
+-
+-
+
 ## Installation
 
 ```sh
+    pip install <required_package_of_this_project>
 
 ```
 
