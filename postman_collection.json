@@ -29,7 +29,7 @@
 					"response": []
 				},
 				{
-					"name": "New Request",
+					"name": "Store",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -38,7 +38,7 @@
 							"formdata": [
 								{
 									"key": "text",
-									"value": "Hello, I'm sad",
+									"value": "she is goated",
 									"type": "text"
 								}
 							]
