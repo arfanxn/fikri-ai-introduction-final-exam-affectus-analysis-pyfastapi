@@ -1,33 +1,33 @@
-from nltk.stem.porter import PorterStemmer 
-import numpy as np
-import re
-import pickle 
-from nltk.corpus import stopwords
-from utils.string import remove_stopwords_then_stem
+import pickle
 
 class SentimentAnalysisService:
 
     @classmethod
     def predict(self, texts: list[str]) -> list[dict]:
-        path = "./pickles"
-        vectorizerFilename = "tfidf_vectorizer.pickle"
-        modelFilename = "affectus-analysis.sav"
-        
-        vectorizer = pickle.load(open(path+"/"+vectorizerFilename ,"rb"))
-        stemmedTexts = map(lambda text: remove_stopwords_then_stem(text), texts)
-        transformedTexts = vectorizer.transform(stemmedTexts)
+        path = "./resources/kaggle"
+        vectorizer = pickle.load(open(path+"/affectus-analysis-vectorizer.pickle","rb"))
+        model = pickle.load(open(path+"/affectus-analysis-model.pickle","rb"))
 
-        model = pickle.load(open(path+"/"+modelFilename, "rb"))
-        predictions = model.predict(transformedTexts)
+        predictions = model.predict(vectorizer.transform(texts))
 
-        analyzed_sentiments = []
+        sentiments = []
         for i in range(len(predictions)):
-            sentiment_code = predictions[i]
-            sentiment_message = "Positive" if sentiment_code == 1 else "Negative"
-            analyzed_sentiments.append({
+            sentiment_type = predictions[i]
+            sentiment_code = None
+            match str(sentiment_type).lower():
+                case 'negative':
+                    sentiment_code = 1
+                case 'positive':
+                    sentiment_code = 2
+                case 'neutral':
+                    sentiment_code = 3
+                case 'irrelevant':
+                    sentiment_code = 4
+
+            sentiments.append({
                 "text": texts[i],
                 "code": str(sentiment_code),
-                "message": sentiment_message,
+                "type": sentiment_type,
             })
 
-        return analyzed_sentiments
+        return sentiments
