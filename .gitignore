@@ -5,9 +5,8 @@ kaggle.json
 .mypy_cache
 .vscode
 __pycache__
-/datasets
-/models
-/pickles/*_test.pickle
+/resources/kaggle/*.zip
+/resources/kaggle/*.csv
 .pytest_cache
 htmlcov
 dist
