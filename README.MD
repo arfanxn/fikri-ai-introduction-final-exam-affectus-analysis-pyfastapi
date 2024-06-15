@@ -10,14 +10,14 @@ Affectus Analysis (Backend) is a sentiment analysis app built with Python progra
 
 ## Notes
 
--   the *postman_collection.json* at the root directory holds the app routes
+-   the _postman_collection.json_ at the root directory holds the app routes
 -
 -
 
 ## Installation
 
 ```sh
-    pip install <required_package_of_this_project>
+    pip install -r requirements.txt
 
 ```
 
